@@ -1,16 +1,114 @@
-:root {
+html {
+  box-sizing: border-box;
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  /* 1rem = 10px  10px/16px = 62.5 */
+  /* font-size: 62.5%; */
+}
+body {
   font-family: "Nunito Sans", sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+}
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+img {
+  max-width: 100%;
+}
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* .col-3 {
+  flex-basis: 25%;
+} */
+.header {
+  background-color: #fff;
+  height: 70px;
+}
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+.filter__wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 0px;
+  flex-wrap: wrap;
+  row-gap: 10px;
+}
+.search__wrapper input,
+.region__wrapper select {
+  padding: 10px 10px;
+  width: 270px;
+  border: none;
+  border-radius: 5px;
+}
+.col-3 {
+  height: 300px;
+}
+.card {
+  min-width: 270px;
+  width: 250px;
+  background-color: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  font-size: 1rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: #000;
+}
+.card__image-wrapper {
+  height: 150px;
+}
+.card__image-wrapper img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.card__details-wrapper {
+  height: 100%;
+  padding: 15px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.card__details-headline {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+.card__details-content--row p {
+  color: #000;
+}
+.card__details-content--row p span {
+  color: #534848;
+}
+.country__wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+.country__img-wrapper img {
+  height: 100%;
+  object-fit: contain;
+}
+.country__details {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.country__neighbor p span {
+  display: inline-block;
+  background: #fff;
+  padding: 2px 20px;
+  margin: 0 5px;
+  border-radius: 3px;
+}
+main {
+  min-height: 80vh;
 }
 
 a {
@@ -23,11 +121,26 @@ a:hover {
 }
 
 body {
+  --accent-color: orangered;
+  --background-color: #e9e8e8;
+  --text-color: black;
+  --button-text-color: var(--background-color);
+  --transition-delay: 0.25s;
+
   margin: 0;
-  display: flex;
-  place-items: center;
+
   min-width: 320px;
   min-height: 100vh;
+
+  transition: var(--transition-delay);
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+body.theme-dark {
+  --accent-color: #d0d066;
+  --background-color: #333;
+  --text-color: white;
 }
 
 h1 {
@@ -71,19 +184,12 @@ button:focus-visible {
   width: 100%;
 }
 .content-wrapper {
-  max-width: 1240px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 .flex {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  row-gap: 30px;
+  column-gap: 40px;
 }
-.col-3 {
-  flex-basis: 33.33%;
-}
-.card {
-  min-width: 250px;
-}
-
-

@@ -1,0 +1,23 @@
+export default {
+  translation: {
+    headline: "Where in the world ?",
+    search_country: "Search Country",
+    dark_mode: "Dark Mode",
+    light_mode: "Light Mode",
+    population: "Population",
+    region: "Region",
+    capital: "Capital",
+    select_region: "Select Region",
+    native_name: "Native Name",
+    top_level_domain: "Top Level Domain",
+    currencies: "Currencies",
+    Languages: "Languages",
+    border_countries: "Border Countries",
+    back: "Back",
+    africa: "Africa",
+    america: "America",
+    asia: "Asia",
+    europe: "Europe",
+    oceania: "Oceania",
+  },
+};

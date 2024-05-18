@@ -1,44 +1,57 @@
-import { Outlet } from 'react-router-dom'
+import { Outlet, useNavigation } from "react-router-dom";
+import useTheme from "../assets/hooks/useTheme";
+import { useTranslation } from "react-i18next";
 
 function AppLayout() {
-//   const [count, setCount] = useState(0)
+  const navigation = useNavigation();
+  const { theme, setAppTheme } = useTheme();
+  const { t, i18n } = useTranslation();
 
+  function switchTheme() {}
+
+  if (navigation.state === "loading") {
+    return (
+      <div>
+        <h1>Loading...</h1>
+      </div>
+    );
+  }
   return (
     <>
-      <header> 
-        <div>
-            TITLE
+      <header className="header">
+        <div className="content-wrapper header-content">
+          <div>
+            <h2> {t("headline")} </h2>
+          </div>
+          <div>
+            {theme === "light" ? (
+              <button onClick={() => setAppTheme("dark")}>
+                {" "}
+                {t("dark_mode")}
+              </button>
+            ) : (
+              <button onClick={() => setAppTheme("light")}>
+                {t("light_mode")}
+              </button>
+            )}
+          </div>
+          <div>
+            {i18n.resolvedLanguage === "en" ? (
+              <button onClick={() => i18n.changeLanguage("de")}>German</button>
+            ) : (
+              <button onClick={() => i18n.changeLanguage("en")}>English</button>
+            )}
+          </div>
         </div>
-        <div>Theme Switcher</div>
       </header>
       <main>
-        <div className='content-wrapper'>
-            <Outlet />
+        <div className="content-wrapper">
+          <Outlet />
         </div>
       </main>
-      <footer> Footer </footer>
-      {/* <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        <Outlet />
-      </p> */}
+      <footer> 2024 Footer </footer>
     </>
-  )
+  );
 }
 
-export default AppLayout
+export default AppLayout;
